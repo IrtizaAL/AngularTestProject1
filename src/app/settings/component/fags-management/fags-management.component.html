@@ -1,0 +1,49 @@
+<div style="margin-top: 5rem">
+  <h4 class="ml-3 mb-3">FAQs Management</h4>
+
+  <div class="row pt-2 mx-3 bg-white">
+    <div class="col">
+      <h6>FAQs Management</h6>
+    </div>
+    <div class="col-4 col-md-2 text-center mb-2">
+      <button class="btn btn-sm btn-dark">Add FAQs</button>
+    </div>
+  </div>
+  <div class="mat-elevation-z8 mx-3 shadow-none">
+    <table mat-table [dataSource]="dataSource">
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef>#</th>
+        <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+      </ng-container>
+
+      <!-- Question Column -->
+      <ng-container matColumnDef="question">
+        <th mat-header-cell *matHeaderCellDef>
+          Question <img class="heading-icon" src="/assets/sort (3).svg" alt="" />
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.question }}</td>
+      </ng-container>
+
+      <!-- Answer Column -->
+      <ng-container class="" matColumnDef="answer">
+        <th mat-header-cell *matHeaderCellDef>Answer <img class="heading-icon" src="/assets/sort (3).svg" alt="" /></th>
+        <td mat-cell *matCellDef="let element">{{ element.answer }}</td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action <img class="heading-icon" src="/assets/sort (3).svg" alt="" /></th>
+        <td mat-cell *matCellDef="let element">
+          <img class="icon my-1 justify-content-center align-self-center" src="/assets/Edit.svg" alt="" />
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[10, 15]" showFirstLastButtons aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+</div>

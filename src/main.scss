@@ -1,0 +1,86 @@
+/*
+ * Entry point of global application style.
+ * Component-specific style should not go here and be included directly as part of the components.
+ */
+
+// Theme variables, must be included before the libraries to allow overriding defaults
+@import "theme/theme-variables";
+
+// 3rd party libraries
+@import "~material-design-icons-iconfont/src/material-design-icons";
+
+// Angular Material custom theme
+// The mixins below must be included once so we separated them from the variables
+@import "~@angular/material/theming";
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($app-theme);
+
+// Theme customization
+@import "theme/theme";
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  // font: normal normal normal 14px/18px Source Sans Pro;
+}
+.top-row {
+  width: 100%;
+  margin-left: 0.1em;
+  background: white;
+}
+.heading-icon {
+  width: 1.5em;
+  padding-left: 8px;
+}
+table td,
+table th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  font: normal normal 400 14px/20px "Source Sans Pro";
+  color: #0d1111;
+}
+table tr:first-child th {
+  background-color: #ffffff;
+  font: normal normal 600 16px/25px Source Sans Pro;
+  color: #0d1111;
+  height: 30px;
+  text-align: center;
+}
+// table tr:last-child td {
+//   border-bottom: 0;
+// }
+table tr td:first-child,
+table tr th:first-child {
+  border-left: 0;
+}
+table tr td:last-child,
+table tr th:last-child {
+  border-right: 0;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+  height: 30px;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+  height: 30px;
+}
+
+.icon {
+  width: 2em;
+}
+.btn-dark {
+  background: black;
+  border: none;
+  &:hover {
+    background: #ff9900;
+  }
+}

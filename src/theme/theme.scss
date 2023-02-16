@@ -1,0 +1,47 @@
+/*
+ * Global application theme.
+ * Framework overrides and customization goes here.
+ */
+
+// stylelint-disable-next-line selector-max-universal
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 100%;
+  background: #fafafa;
+}
+
+* {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+h4 {
+  font-weight: 600;
+}
+
+h6 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+p {
+  font-size: 14px;
+}
+
+$irtiza: #f0a500;

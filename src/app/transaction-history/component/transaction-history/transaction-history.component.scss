@@ -1,0 +1,35 @@
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+  padding-top: 0;
+  padding-bottom: 0.4em;
+  width: 8em;
+}
+
+.gray-bg[_ngcontent-cxy-c196] {
+  background-color: #ececec;
+  padding: 6px;
+  border-radius: 5px;
+}
+
+.filter-btn {
+  background-color: #0d1111 !important;
+  color: #fff;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.font-weight-bold {
+  font-weight: 700 !important;
+}
+
+.trans-btn[_ngcontent-cxy-c196] {
+  background-color: transparent;
+  color: #919191;
+  font-weight: 700;
+}
+
+.mat-button {
+  &:hover {
+    background: black;
+    color: white;
+  }
+}

@@ -1,0 +1,175 @@
+<div fxFlex>
+  <mat-sidenav-container fxFill>
+    <mat-sidenav
+      #sidenav
+      [mode]="isMobile ? 'over' : 'side'"
+      [opened]="!isMobile"
+      [disableClose]="!isMobile"
+      ngClass.gt-sm="has-border"
+      class="position-fixed"
+    >
+      <mat-toolbar style="background: black" class="text-white">
+        <img
+          [routerLink]="'/dashboard'"
+          class="ml-5"
+          style="width: 6em; cursor: pointer"
+          src="/assets/nav-logo.svg"
+          alt=""
+        />
+        <div fxFlex></div>
+        <!-- <div>
+          <button mat-icon-button [matMenuTriggerFor]="userMenu">
+            <mat-icon>person</mat-icon>
+          </button>
+          <mat-menu #userMenu="matMenu">
+            <mat-list>
+              <mat-list-item>
+                <span translate>Logged in as</span>&nbsp;<b>{{ username }}</b>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+            </mat-list>
+            <button mat-menu-item (click)="logout()" translate>Logout</button>
+          </mat-menu>
+        </div> -->
+        <!-- <app-language-selector [icon]="true"></app-language-selector> -->
+      </mat-toolbar>
+      <nav>
+        <mat-list>
+          <mat-divider></mat-divider>
+          <a mat-list-item routerLink="/dashboard" routerLinkActive="active" (click)="isMobile && sidenav.close()">
+            <mat-icon class="mr-2">speed</mat-icon>
+            <span translate>Dashboard</span>
+          </a>
+          <!-- <mat-divider></mat-divider> -->
+          <a
+            mat-list-item
+            routerLink="/customers_management"
+            routerLinkActive="active"
+            (click)="isMobile && sidenav.close()"
+          >
+            <mat-icon class="mr-2">manage_accounts</mat-icon>
+            <span translate>Customers Management</span>
+          </a>
+          <!-- <mat-divider></mat-divider> -->
+          <a
+            mat-list-item
+            routerLink="/category_management"
+            routerLinkActive="active"
+            (click)="isMobile && sidenav.close()"
+          >
+            <mat-icon class="mr-2">groups</mat-icon>
+            <span translate>Category Management</span>
+          </a>
+          <a mat-list-item routerLink="/chat_history" routerLinkActive="active" (click)="isMobile && sidenav.close()">
+            <mat-icon class="mr-2">mark_unread_chat_alt</mat-icon>
+            <span translate>Chat History</span>
+          </a>
+          <a
+            mat-list-item
+            routerLink="/rating_&_review_management"
+            routerLinkActive="active"
+            (click)="isMobile && sidenav.close()"
+          >
+            <mat-icon class="mr-2">star</mat-icon>
+            <span translate>Rating & Review Management</span>
+          </a>
+          <a
+            mat-list-item
+            routerLink="/task_management"
+            routerLinkActive="active"
+            (click)="isMobile && sidenav.close()"
+          >
+            <mat-icon class="mr-2">grading</mat-icon>
+            <span translate>Task Management</span>
+          </a>
+          <a
+            mat-list-item
+            routerLink="/ticket_management"
+            routerLinkActive="active"
+            (click)="isMobile && sidenav.close()"
+          >
+            <mat-icon class="mr-2">support_agent</mat-icon>
+            <span translate>Ticket Management</span>
+          </a>
+          <a
+            mat-list-item
+            routerLink="/transaction_history"
+            routerLinkActive="active"
+            (click)="isMobile && sidenav.close()"
+          >
+            <mat-icon class="mr-2">history</mat-icon>
+            <span translate>Transaction History</span>
+          </a>
+          <!-- <a mat-list-item routerLink="/settings" routerLinkActive="active" (click)="isMobile && sidenav.close()">
+            <mat-icon class="mr-2">settings</mat-icon>
+            <span translate> Settings </span> -->
+
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <a mat-list-item routerLink="/settings" (click)="isMobile && sidenav.close()">
+                <mat-icon class="mr-2">settings</mat-icon><span translate> Settings </span>
+              </a>
+            </mat-expansion-panel-header>
+            <mat-list>
+              <a
+                class="d-flex"
+                mat-list-item
+                routerLink="/settings/fag"
+                routerLinkActive="active"
+                (click)="isMobile && sidenav.close()"
+              >
+                <mat-icon class="mr-2">radio_button_unchecked</mat-icon>
+                <span translate>FAQs Management</span>
+              </a>
+              <a
+                class="d-flex"
+                mat-list-item
+                routerLink="/settings/badge"
+                routerLinkActive="active"
+                (click)="isMobile && sidenav.close()"
+              >
+                <mat-icon class="mr-2">radio_button_unchecked</mat-icon>
+                <span translate>Badges Management</span>
+              </a>
+            </mat-list>
+          </mat-expansion-panel>
+          <!-- </a> -->
+        </mat-list>
+      </nav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar style="background: #e7e7e7" class="mat-elevation-z6 shadow-none fixed-top">
+        <button class="menu-button" mat-icon-button (click)="sidenav.toggle()" fxHide.gt-sm>
+          <mat-icon>menu</mat-icon>
+        </button>
+        <!-- <span>{{ title }}</span> -->
+        <div class="ml-auto">
+          <div class="row d-flex">
+            <div class="col-3"></div>
+            <div class="col">
+              <button mat-button [matMenuTriggerFor]="menu">
+                <label class="dropdown-toggle"><img src="assets/Ellipse 5064.png" /> John Elton</label>
+              </button>
+              <mat-menu #menu="matMenu" class="p-3 text-center">
+                <img src="assets/Ellipse 5064.png" />
+                <h6>Elton Jhon - Super Admin</h6>
+                <small class="text-muted text-center">joined at 22 jan, 2022</small>
+                <div class="row px-3 bg-light mt-2 d-flex">
+                  <button routerLink="/settings" class="btn btn-sm btn-dark">Profile</button>
+                  <button (click)="logout()" class="btn btn-sm btn-dark ml-auto">Sign Out</button>
+                </div>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+      </mat-toolbar>
+      <div class="custom-footer">
+        <div class="bg-white px-4 py-3">
+          <div><span class="font-weight-semi-bold"> Copyright © 2021 WorkBook.</span> All rights reserved.</div>
+        </div>
+      </div>
+
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

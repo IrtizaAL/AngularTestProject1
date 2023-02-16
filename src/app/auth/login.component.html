@@ -1,0 +1,59 @@
+<div fxFill fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1.5rem" class="mat-typography transparent">
+  <div>
+    <!-- <h1 fxLayoutAlign="center" translate>APP_NAME</h1> -->
+    <img class="w-50 ml-5" src="/assets/Group 89048.svg" alt="" />
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="2rem">
+      <!-- <h4 class="version">v{{ version }}</h4> -->
+      <!-- <app-language-selector></app-language-selector> -->
+    </div>
+  </div>
+  <div class="login-container" fxLayout="row" fxLayoutAlign="center">
+    <mat-card fxFlex="60%" fxFlex.sm="50%" fxFlex.md="40%" fxFlex.gt-md="30%" class="login-box shadow-sm">
+      <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+        <div class="login-error" [hidden]="!error || isLoading" translate>email or password incorrect.</div>
+        <br />
+        <div class="login-fields" fxLayout="column">
+          <h2 class="text-center">Welcome To The Dashboard</h2>
+          <mat-form-field appearance="outline" [hideRequiredMarker]="true">
+            <input
+              type="email"
+              matInput
+              formControlName="email"
+              autocomplete="email"
+              [placeholder]="'Email' | translate"
+              required
+            />
+            <mat-error *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
+              <span translate>Email is required</span>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" [hideRequiredMarker]="true">
+            <input
+              type="password"
+              matInput
+              formControlName="password"
+              autocomplete="current-password"
+              [placeholder]="'Password' | translate"
+              required
+            />
+            <mat-error *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
+              <span translate>Password is required</span>
+            </mat-error>
+          </mat-form-field>
+          <div class="row">
+            <div class="col"><mat-checkbox>Remember me</mat-checkbox></div>
+            <div class="col-5">
+              <button class="btn"><u>Forgot Password</u></button>
+            </div>
+          </div>
+
+          <br />
+          <button class="btn-dark text-white" mat-raised-button type="submit">
+            <app-loader class="inline-loader" [isLoading]="isLoading"></app-loader>
+            <span translate>Login</span>
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+table td,
+table th {
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+table tr:first-child th {
+  padding: 0;
+}
